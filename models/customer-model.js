@@ -1,9 +1,9 @@
 const {DataTypes} = require('sequelize');
-const sequelize = require("../database-connection");
+const {sequelize} = require("../database-connection");
 
-const Customer = sequelize.define("Customer", {
+const Customers = sequelize.define("Customer", {
   id: {
-    type: DataTypes.UUIDV4,
+    type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
     allowNull: false,
@@ -20,14 +20,8 @@ const Customer = sequelize.define("Customer", {
   },
   phone: {
     type: DataTypes.STRING,
+    unique: true,
   }
 });
 
-Customer.associate = function(models) {
-  Customer.belongsTo(models.Order, {
-    onDelete: "CASCADE",
-    foreignKey: "id",
-  })
-}
-
-module.exports = {Customer}
+module.exports = {Customers};

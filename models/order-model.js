@@ -1,17 +1,11 @@
 const {DataTypes} = require('sequelize');
-const sequelize = require("../database-connection");
+const {sequelize} = require("../database-connection");
 
-const Order = sequelize.define("Order", {
+const Orders = sequelize.define("Order", {
   id: {
-    type: DataTypes.UUIDV4,
+    type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
-    allowNull: false,
-  },
-
-  customer_id: {
-    type: DataTypes.UUIDV4,
-    defaultValue: DataTypes.UUIDV4,
     allowNull: false,
   },
 
@@ -23,16 +17,10 @@ const Order = sequelize.define("Order", {
     type: DataTypes.STRING,
   },
 
-  total_amount: {
+  totalAmount: {
     type: DataTypes.INTEGER,
+    field: 'total_amount',
   }
 });
 
-Order.associate = function(models) {
-  Order.many(models.Customer, {
-    onDelete: "CASCADE",
-    foreignKey: "customer_id",
-  })
-}
-
-module.exports = {Order};
+module.exports = {Orders};

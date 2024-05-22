@@ -6,9 +6,11 @@ var logger = require('morgan');
 
 require('dotenv').config();
 require("./database-connection");
+require("./models/association");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const {sequelize} = require("./database-connection");
 
 var app = express();
 

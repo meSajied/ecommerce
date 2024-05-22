@@ -1,30 +1,17 @@
 const {DataTypes} = require('sequelize');
-const sequelize = require("../database-connection");
+const {sequelize} = require("../database-connection");
 
-const OrderItem = sequelize.define("OrderItem", {
+const OrderItems = sequelize.define("OrderItem", {
   id: {
-    type: DataTypes.UUIDV4,
+    type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
     allowNull: false,
   },
 
-  order_id: {
-    type: DataTypes.UUIDV4,
-    defaultValue: DataTypes.UUIDV4,
-    foreignKey: true,
-    allowNull: false,
-  },
-
-  product_id: {
-    type: DataTypes.UUIDV4,
-    defaultValue: DataTypes.UUIDV4,
-    foreignKey: true,
-    allowNull: false,
-  },
-
-  order_quantity: {
+  orderQuantity: {
     type: DataTypes.INTEGER,
+    field: 'order_quantity',
   },
 
   price: {
@@ -32,4 +19,4 @@ const OrderItem = sequelize.define("OrderItem", {
   }
 });
 
-module.exports = {OrderItem};
+module.exports = {OrderItems};

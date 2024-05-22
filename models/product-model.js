@@ -1,13 +1,13 @@
 const {DataTypes} = require('sequelize');
-const sequelize = require("../database-connection");
+const {sequelize} = require("../database-connection");
 
-const Product = sequelize.define("product", {
+const Products = sequelize.define("product", {
   id: {
-    type: DataTypes.UUIDV4,
+    type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
     allowNull: false,
   }
 });
 
-module.exports = {Product}
+module.exports = {Products};
