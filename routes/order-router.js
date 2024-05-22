@@ -1,7 +1,8 @@
 var express = require('express');
+const {OrderPlacementController} = require("../controllers/order-placement-controller");
 var router = express.Router();
 
 router
-    .get('/', );
+    .post('/place-order', OrderPlacementController);
 
 module.exports = router;
