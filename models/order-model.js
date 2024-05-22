@@ -9,8 +9,9 @@ const Orders = sequelize.define("Order", {
     allowNull: false,
   },
 
-  order_date: {
+  orderDate: {
     type: DataTypes.DATE,
+    field: 'order_date'
   },
 
   status: {

@@ -6,8 +6,8 @@ const {sequelize} = require("../database-connection");
 
 Customers.hasOne(Orders, {
   onDelete: "CASCADE",
-  foreignKey: "orderId",
-  field: 'order_id',
+  foreignKey: "customerId",
+  field: 'customer_id',
 })
 
 Orders.hasMany(OrderItems, {
@@ -16,7 +16,7 @@ Orders.hasMany(OrderItems, {
   field: 'order_id',
 })
 
-OrderItems.hasOne(Products, {
+Products.hasOne(OrderItems, {
   onDelete: "CASCADE",
   foreignKey: "productId",
   field: 'product_id',
