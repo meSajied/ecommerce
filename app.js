@@ -10,7 +10,8 @@ require("./models/association");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const {sequelize} = require("./database-connection");
+require("./database-connection");
+const {rateLimiter} = require("./rate-limiter");
 
 var app = express();
 
@@ -22,6 +23,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(rateLimiter);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

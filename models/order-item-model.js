@@ -15,7 +15,7 @@ const OrderItems = sequelize.define("OrderItem", {
   },
 
   price: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.DECIMAL,
   }
 });
 

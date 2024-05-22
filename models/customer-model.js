@@ -18,9 +18,8 @@ const Customers = sequelize.define("Customer", {
       isEmail: true,
     }
   },
-  phone: {
-    type: DataTypes.STRING,
-    unique: true,
+  address: {
+    type: DataTypes.STRING
   }
 });
 

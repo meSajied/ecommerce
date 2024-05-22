@@ -4,22 +4,22 @@ const {Products} = require("./product-model")
 const {OrderItems} = require("./order-item-model")
 const {sequelize} = require("../database-connection");
 
-Customers.hasMany(Orders, {
+Customers.hasOne(Orders, {
   onDelete: "CASCADE",
   foreignKey: "orderId",
   field: 'order_id',
 })
 
-OrderItems.hasMany(Orders, {
+Orders.hasMany(OrderItems, {
   onDelete: "CASCADE",
   foreignKey: "orderId",
   field: 'order_id',
 })
 
-OrderItems.hasMany(Products, {
+OrderItems.hasOne(Products, {
   onDelete: "CASCADE",
   foreignKey: "productId",
   field: 'product_id',
 })
 
-sequelize.sync()
+sequelize.sync();

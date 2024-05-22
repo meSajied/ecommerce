@@ -7,6 +7,18 @@ const Products = sequelize.define("product", {
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
     allowNull: false,
+  },
+
+  name: {
+    type: DataTypes.STRING
+  },
+
+  price: {
+    type: DataTypes.DECIMAL
+  },
+
+  stock: {
+    type: DataTypes.INTEGER
   }
 });
 
