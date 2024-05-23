@@ -1,11 +1,8 @@
-FROM node:20
-
-RUN mkdir -p /app
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package.json .
-COPY package-lock.json .
+COPY package.json package-lock.json ./
 
 RUN npm install
 
