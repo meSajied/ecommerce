@@ -1,3 +1,8 @@
+### Create a .env file:
+- Create a .env file in `path/to/the/directory`.
+- Create a environment variable in the file:
+`DB_URL=url_of_the_database`
+
 ### Run the server:
 
 ```
